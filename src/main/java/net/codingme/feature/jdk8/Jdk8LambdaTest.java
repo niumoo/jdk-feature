@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
  * @Author niujinpeng
  * @Date 2019/2/17 14:48
  */
-public class JDK8Lambda {
+public class Jdk8LambdaTest {
 
     /**
      * 使用 ()->{} 代替匿名内部类
@@ -69,8 +69,9 @@ public class JDK8Lambda {
     public void functionInterfaceTest() {
         List<String> skills = Arrays.asList("java", "golang", "c++", "c", "python");
         Predicate<String> length4 = (str) -> str.length() > 4;
-        filter1(skills, length4);
-        filter2(skills, length4);
+        filterByForeach(skills, length4);
+        System.out.println("----------------------");
+        filterByFilter(skills, length4);
     }
 
     /**
@@ -79,7 +80,7 @@ public class JDK8Lambda {
      * @param list
      * @param condition
      */
-    public void filter1(List list, Predicate condition) {
+    public void filterByForeach(List list, Predicate condition) {
         list.forEach(a -> {
             if (condition.test(a)) {
                 System.out.print(a + " ");
@@ -93,7 +94,7 @@ public class JDK8Lambda {
      * @param list
      * @param condition
      */
-    public void filter2(List list, Predicate condition) {
+    public void filterByFilter(List list, Predicate condition) {
         list.stream().filter(a -> condition.test(a)).forEach(a -> System.out.print(a + (" ")));
     }
 

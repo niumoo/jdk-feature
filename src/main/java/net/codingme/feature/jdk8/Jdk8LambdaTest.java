@@ -16,7 +16,11 @@ import java.util.stream.Collectors;
  * <p>
  * (params) -> statement
  * <p>
- * (params) -> { statements }
+ * (params) -> { statements; }
+ * <p>
+ * Lambda 几个特征
+ * - 可选的类型声明，编译器可以自动识别
+ * - 可选的参数括号，一个
  *
  * @Author niujinpeng
  * @Date 2019/2/17 14:48

@@ -64,5 +64,9 @@ class Car {
 
 @FunctionalInterface
 interface Supplier<T> {
+    /**
+     * 获取元素
+     * @return
+     */
     T get();
 }

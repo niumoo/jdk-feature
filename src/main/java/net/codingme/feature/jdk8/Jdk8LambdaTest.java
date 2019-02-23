@@ -18,9 +18,7 @@ import java.util.stream.Collectors;
  * <p>
  * (params) -> { statements; }
  * <p>
- * Lambda 几个特征
- * - 可选的类型声明，编译器可以自动识别
- * - 可选的参数括号，一个
+ * Lambda 几个特征 - 可选的类型声明，编译器可以自动识别 - 可选的参数括号，一个
  *
  * @Author niujinpeng
  * @Date 2019/2/17 14:48
@@ -117,7 +115,7 @@ public class Jdk8LambdaTest {
     }
 
     /**
-     * map,允许改变对象
+     * map，注意，这里的map是进行1:1的转换映射，一半用于从前到后的内容和类型修改
      */
     @Test
     public void mapTest() {

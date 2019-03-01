@@ -51,6 +51,8 @@ public class Jdk8TimeTest {
      */
     @Test
     public void createTime() {
+        LocalDateTime now = LocalDateTime.now();
+        System.out.println(now);
         LocalDateTime ofTime = LocalDateTime.of(2019, 2, 1, 8, 8, 8);
         System.out.println(ofTime);
 
@@ -59,16 +61,28 @@ public class Jdk8TimeTest {
 
         LocalDate localDate = LocalDate.of(2019, 01, 01);
         System.out.println(localDate);
+    }
 
+    /**
+     * 日期转换
+     */
+    @Test
+    public void convertTimeTest(){
         LocalDateTime parseTime = LocalDateTime.parse("2019-02-02T22:22:22.222");
-        System.out.println(parseTime);
+        System.out.println("时间转换1："+parseTime);
 
         LocalDate formatted = LocalDate.parse("20190101", DateTimeFormatter.BASIC_ISO_DATE);
-        System.out.println("时间转换：" + formatted);
+        System.out.println("时间转换2：" + formatted);
 
+        // date to LocalDateTime
         Date date = new Date();
         ZoneId zoneId = ZoneId.systemDefault();
-        System.out.println("时间转换2："+LocalDateTime.ofInstant(date.toInstant(),zoneId));
+        System.out.println("时间转换3："+LocalDateTime.ofInstant(date.toInstant(),zoneId));
+
+        // LocalDateTime to date
+        LocalDateTime localDateTime = LocalDateTime.now();
+        Date toDate = Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
+        System.out.println(toDate);
     }
 
     /**

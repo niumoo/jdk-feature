@@ -8,6 +8,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
+import java.util.Date;
 
 /**
  * <p>
@@ -64,6 +65,10 @@ public class Jdk8TimeTest {
 
         LocalDate formatted = LocalDate.parse("20190101", DateTimeFormatter.BASIC_ISO_DATE);
         System.out.println("时间转换：" + formatted);
+
+        Date date = new Date();
+        ZoneId zoneId = ZoneId.systemDefault();
+        System.out.println("时间转换2："+LocalDateTime.ofInstant(date.toInstant(),zoneId));
     }
 
     /**
@@ -109,11 +114,15 @@ public class Jdk8TimeTest {
         // 第一天
         LocalDateTime firstDay = now.withDayOfMonth(1);
         System.out.println(firstDay);
+        // 当天最后一秒
+        LocalDateTime lastSecondOfDay = now.withHour(23).withMinute(59).withSecond(59);
+        System.out.println(lastSecondOfDay);
         // 最后一天
         LocalDateTime lastDay = now.with(TemporalAdjusters.lastDayOfMonth());
         System.out.println(lastDay);
         // 是否闰年
         System.out.println("今年是否闰年" + Year.isLeap(now.getYear()));
+
     }
 
     /**

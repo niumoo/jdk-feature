@@ -1,14 +1,12 @@
 package net.codingme.feature.jdk8;
 
-import org.junit.Test;
-
-import java.security.MessageDigest;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
 import java.util.Date;
+
+import org.junit.Test;
 
 /**
  * <p>

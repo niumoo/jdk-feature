@@ -1,12 +1,12 @@
 package net.codingme.feature.jdk8;
 
-import org.junit.Test;
-
 import java.util.Arrays;
 import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+
+import org.junit.Test;
 
 /**
  * <p>

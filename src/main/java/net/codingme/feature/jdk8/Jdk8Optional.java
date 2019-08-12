@@ -1,15 +1,18 @@
 package net.codingme.feature.jdk8;
 
+import lombok.*;
+
 import java.nio.charset.Charset;
 import java.util.Optional;
 
 /**
  * <p>
- *
+ * JDK8 为解决空指针增加的 Optional 方法
+ * 
  * @Author niujinpeng
  * @Date 2019/2/19 11:40
  */
-public class Jdk8OptionalTest {
+public class Jdk8Optional {
 
     public static void main(String[] args) {
         Dog dog = new Dog();
@@ -39,10 +42,10 @@ public class Jdk8OptionalTest {
         System.out.println("------------------------------------------");
 
         // 存在则输出
-        dogOptional.ifPresent(Dog::print);
+        dogOptional.ifPresent(Dog::toString);
         // before jdk8
         if (dog != null) {
-            dog.print();
+            dog.toString();
         }
         System.out.println("------------------------------------------");
 
@@ -52,11 +55,11 @@ public class Jdk8OptionalTest {
         String dogName2 = nullOptional.map(d -> d.getName()).orElse("undefine");
         System.out.println(dogName2);
         // before
-        //if (dog != null && dog.getName() != null) {
-        //    System.out.println(dog.getName());
-        //} else {
-        //    System.out.println("undefine");
-        //}
+        // if (dog != null && dog.getName() != null) {
+        // System.out.println(dog.getName());
+        // } else {
+        // System.out.println("undefine");
+        // }
         System.out.println("------------------------------------------");
 
         // 数据处理
@@ -75,32 +78,8 @@ public class Jdk8OptionalTest {
     }
 }
 
+@Data
 class Dog {
     private String name;
     private Integer age;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    @Override
-    public String toString() {
-        return "Dog{" + "name='" + name + '\'' + ", age=" + age + '}';
-    }
-
-    public void print() {
-        System.out.println(toString());
-    }
 }

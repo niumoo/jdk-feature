@@ -21,7 +21,7 @@ import org.junit.Test;
  * @Author niujinpeng
  * @Date 2019/2/19 17:48
  */
-public class Jdk8TimeTest {
+public class Jdk8LocalDateTime {
 
     /**
      * 时间获取和创建

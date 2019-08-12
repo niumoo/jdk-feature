@@ -8,7 +8,7 @@ package net.codingme.feature.jdk8;
  * @Author niujinpeng
  * @Date 2019/2/18 22:52
  */
-public class Jdk8InterfaceTest {
+public class Jdk8Interface {
     public static void main(String[] args) {
         // 接口静态方法
         Person.say();
@@ -18,6 +18,13 @@ public class Jdk8InterfaceTest {
         // 接口重写方法
         Northerners northerners = new Northerners();
         northerners.eat();
+
+        /**
+         * result<br/>
+         * 你好啊<br/>
+         * 吃米饭<br/>
+         * 吃馒头<br/>
+         */
     }
 }
 

@@ -61,7 +61,7 @@ public class Jdk8Lambda {
     public void testSortAfterJdk8() {
         // 方式1
         userList.sort((User u1, User u2) -> u1.getAge() - u2.getAge());
-        userList.forEach(user -> System.out.println(user));
+        userList.forEach(System.out::println);
         System.out.println("------------------------");
         // 方式2
         userList.sort((u1, u2) -> u1.getAge().compareTo(u2.getAge()));

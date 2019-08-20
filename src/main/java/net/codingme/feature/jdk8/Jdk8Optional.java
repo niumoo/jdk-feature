@@ -74,7 +74,6 @@ public class Jdk8Optional {
         System.out.println(dogThrow1);
         Dog dogThrow2 = emptyOptional.orElseThrow(() -> new RuntimeException("dog is empty"));
         System.out.println(dogThrow2);
-
     }
 }
 

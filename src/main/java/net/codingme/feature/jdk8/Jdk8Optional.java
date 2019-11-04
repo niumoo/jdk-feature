@@ -145,14 +145,36 @@ public class Jdk8Optional {
     public void optionalTest() {
         // 没有声卡，没有 Usb 的电脑
         Computer computerNoUsb = new Computer();
-        computerNoUsb.setSoundCar(Optional.empty());
+        computerNoUsb.setSoundCard(Optional.empty());
         // 获取 usb 版本
         Optional<Computer> computerOptional = Optional.ofNullable(computerNoUsb);
-        String version = computerOptional.flatMap(Computer::getSoundCar)
-                .flatMap(SoundCar::getUsb)
-                .map(Usb::getVersion)
-                .orElse("UNKNOWN");
+        String version = computerOptional.flatMap(Computer::getSoundCard).flatMap(SoundCard::getUsb)
+            .map(Usb::getVersion).orElse("UNKNOWN");
         System.out.println(version);
+        System.out.println("-----------------");
+
+        // 如果有值，则输出
+        SoundCard soundCard = new SoundCard();
+        Usb usb = new Usb();
+        usb.setVersion("2.0");
+        soundCard.setUsb(Optional.ofNullable(usb));
+        Optional<SoundCard> optionalSoundCard = Optional.ofNullable(soundCard);
+        optionalSoundCard.ifPresent(System.out::println);
+        // 如果有值，则输出
+        if (optionalSoundCard.isPresent()) {
+            System.out.println(optionalSoundCard.get());
+        }
+
+        // 输出没有值，则没有输出
+        Optional<SoundCard> optionalSoundCardEmpty = Optional.ofNullable(null);
+        optionalSoundCardEmpty.ifPresent(System.out::println);
+        System.out.println("-----------------");
+
+        // 筛选 Usb2.0
+        optionalSoundCard.map(SoundCard::getUsb)
+                .filter(usb1 -> "3.0".equals(usb1.map(Usb::getVersion)
+                .orElse("UBKNOW")))
+                .ifPresent(System.out::println);
     }
 
 }
@@ -162,14 +184,14 @@ public class Jdk8Optional {
  */
 @Data
 class Computer {
-    private Optional<SoundCar> soundCar;
+    private Optional<SoundCard> soundCard;
 }
 
 /**
  * 声卡
  */
 @Data
-class SoundCar {
+class SoundCard {
     private Optional<Usb> usb;
 }
 

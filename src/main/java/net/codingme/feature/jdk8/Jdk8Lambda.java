@@ -1,14 +1,13 @@
 package net.codingme.feature.jdk8;
 
-import java.util.*;
-import java.util.stream.Collectors;
-
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
-import lombok.*;
-import org.junit.Before;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import org.junit.Test;
 
-import org.w3c.dom.ls.LSOutput;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * <p>

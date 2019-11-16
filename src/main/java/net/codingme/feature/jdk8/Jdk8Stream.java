@@ -3,11 +3,14 @@ package net.codingme.feature.jdk8;
 import lombok.ToString;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.IntSummaryStatistics;
-import java.util.List;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.DoubleStream;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 /**
  * <p>
@@ -18,6 +21,44 @@ import java.util.stream.Collectors;
  */
 public class Jdk8Stream {
 
+    /**
+     * 创建流的几种方式
+     * 集合
+     * Collection.stream();
+     * Collection.parallelStream()
+     * 数组
+     * Arrays.stream(T array) or Stream.of()
+     * 文件流
+     * java.io.BufferedReader.lines()
+     * 静态方法
+     * IntStream.range，IntStream.of
+     */
+    @Test
+    public void createStream() throws FileNotFoundException {
+        List<String> nameList = Arrays.asList("Darcy", "Chris", "Linda", "Sid", "Kim", "Jack", "Poul", "Peter");
+        String[] nameArr = {"Darcy", "Chris", "Linda", "Sid", "Kim", "Jack", "Poul", "Peter"};
+        // 集合获取 Stream 流
+        Stream<String> nameListStream = nameList.stream();
+        // 集合获取并行 Stream 流
+        Stream<String> nameListStream2 = nameList.parallelStream();
+        // 数组获取 Stream 流
+        Stream<String> nameArrStream = Stream.of(nameArr);
+        // 数组获取 Stream 流
+        Stream<String> nameArrStream1 = Arrays.stream(nameArr);
+
+        // 文件流获取 Stream 流
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("README.md"));
+        Stream<String> linesStream = bufferedReader.lines();
+        linesStream.forEach(System.out::println);
+
+        // 从静态工厂获取流操作
+        IntStream rangeStream = IntStream.range(1, 10);
+        rangeStream.limit(10).forEach(System.out::println);
+
+        IntStream intStream = IntStream.of(1, 2, 3, 3, 4);
+
+    }
+
     @Test
     public void test1() {
 
@@ -27,8 +68,9 @@ public class Jdk8Stream {
         // 筛选出长度为4的值
         List<String> subList = new ArrayList<>();
         for (String name : names) {
-            if (name.length() == 4)
+            if (name.length() == 4) {
                 subList.add(name);
+            }
         }
         // 把值用逗号分隔
         StringBuilder namesOfLength4 = new StringBuilder();
@@ -43,12 +85,9 @@ public class Jdk8Stream {
         System.out.println("----------------");
 
         // 使用流操作
-        String str = names.stream()
-                .filter(num -> num.length() == 4)
-                .collect(Collectors.joining(", "));
+        String str = names.stream().filter(num -> num.length() == 4).collect(Collectors.joining(", "));
         System.out.println(str);
     }
-
 
     /**
      * map，注意，这里的map是进行1:1的转换映射，一般用于从前到后的内容和类型修改
@@ -114,7 +153,6 @@ public class Jdk8Stream {
         System.out.println("个数" + stats.getCount());
         System.out.println("和" + stats.getSum());
         System.out.println("平均数" + stats.getAverage());
-
 
     }
 }

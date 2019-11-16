@@ -28,16 +28,12 @@ public class Jdk8Function {
         final Car audiCar = Car.create(Car::new);
         audiCar.setName("AUDI");
         List<Car> cars = Arrays.asList(bmwCar, audiCar);
-
         // 静态方法引用
         cars.forEach(Car::collide);
-
         // 特定类的任意对象的方法引用
         cars.forEach(Car::repair);
-
         // 特定对象的方法引用
         cars.forEach(bmwCar::follow);
-
     }
 
     /**

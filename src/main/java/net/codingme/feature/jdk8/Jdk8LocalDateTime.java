@@ -12,12 +12,13 @@ import org.junit.Test;
  * <p>
  * JDK 8 date / time api
  * <p>
- * 优点： <br/>
- * - 都是final 不可变类，适用于多线程 <br/>
+ * 优点：
+ * <br/>
+ * - 都是final 不可变类， 适用于多线程 <br/>
  * - 用法清晰，如都适用的now(),of(),parse(),format()方法<br/>
  * - 实现了大部分常用操作方法
  * </p>
- *
+ * 
  * @Author niujinpeng
  * @Date 2019/2/19 17:48
  */
@@ -25,6 +26,8 @@ public class Jdk8LocalDateTime {
 
     /**
      * 时间获取
+     * 
+     * 
      */
     @Test
     public void nowTimeTest() {
@@ -94,7 +97,8 @@ public class Jdk8LocalDateTime {
         long epochMilli = LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli();
         System.out.println("当前时间转时间戳：" + epochMilli);
         // 时间戳转换成时间
-        LocalDateTime epochMilliTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(epochMilli), ZoneId.systemDefault());
+        LocalDateTime epochMilliTime =
+            LocalDateTime.ofInstant(Instant.ofEpochMilli(epochMilli), ZoneId.systemDefault());
         System.out.println("时间戳转换成时间：" + epochMilliTime);
     }
 

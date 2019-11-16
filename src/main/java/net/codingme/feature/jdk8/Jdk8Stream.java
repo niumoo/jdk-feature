@@ -1,14 +1,15 @@
 package net.codingme.feature.jdk8;
 
-import lombok.ToString;
 import org.junit.Test;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.IntSummaryStatistics;
+import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -49,14 +50,13 @@ public class Jdk8Stream {
         // 文件流获取 Stream 流
         BufferedReader bufferedReader = new BufferedReader(new FileReader("README.md"));
         Stream<String> linesStream = bufferedReader.lines();
-        linesStream.forEach(System.out::println);
 
-        // 从静态工厂获取流操作
+        // 从静态方法获取流操作
         IntStream rangeStream = IntStream.range(1, 10);
-        rangeStream.limit(10).forEach(System.out::println);
-
+        rangeStream.limit(10).forEach(num -> System.out.print(num+","));
+        System.out.println();
         IntStream intStream = IntStream.of(1, 2, 3, 3, 4);
-
+        intStream.forEach(num -> System.out.print(num+","));
     }
 
     @Test

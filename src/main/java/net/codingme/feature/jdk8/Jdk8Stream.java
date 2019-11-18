@@ -86,11 +86,18 @@ public class Jdk8Stream {
     @Test
     public void mapTest() {
         List<Integer> numberList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
+        // 映射成 2倍数字
         List<Integer> collect = numberList.stream()
                 .map(number -> number * 2)
                 .collect(Collectors.toList());
         collect.forEach(number -> System.out.print(number + ","));
+        System.out.println();
+
+        numberList.stream()
+                .map(number -> "数字 " + number + ",")
+                .forEach(number -> System.out.print(number));
     }
+
 
 
     /**
@@ -143,14 +150,42 @@ public class Jdk8Stream {
         System.out.println(firstNumber.orElse(-1));
     }
 
-
+    /**
+     * Stream 转换为其他数据结构
+     */
     @Test
-    public void test1() {
+    public void collectTest() {
+        List<Integer> numberList = Arrays.asList(1, 1, 2, 2, 3, 3, 4, 4, 5);
+        // to array
+        Integer[] toArray = numberList.stream()
+                .toArray(Integer[]::new);
+        // to List
+        List<Integer> integerList = numberList.stream()
+                .collect(Collectors.toList());
+        // to set
+        Set<Integer> integerSet = numberList.stream()
+                .collect(Collectors.toSet());
+        System.out.println(integerSet);
+        // to string
+        String toString = numberList.stream()
+                .map(number -> String.valueOf(number))
+                .collect(Collectors.joining()).toString();
+        System.out.println(toString);
+        // to string split by ,
+        String toStringbJoin = numberList.stream()
+                .map(number -> String.valueOf(number))
+                .collect(Collectors.joining(",")).toString();
+        System.out.println(toStringbJoin);
+    }
 
-        // 不适用流操作
+    /**
+     * 使用流操作和不使用流操作的编码风格对比
+     */
+    @Test
+    public void diffTest() {
+        // 不使用流操作
         List<String> names = Arrays.asList("Jack", "Jill", "Nate", "Kara", "Kim", "Jullie", "Paul", "Peter");
-
-        // 筛选出长度为4的值
+        // 筛选出长度为4的名字
         List<String> subList = new ArrayList<>();
         for (String name : names) {
             if (name.length() == 4) {
@@ -158,39 +193,29 @@ public class Jdk8Stream {
             }
         }
         // 把值用逗号分隔
-        StringBuilder namesOfLength4 = new StringBuilder();
+        StringBuilder sbNames = new StringBuilder();
         for (int i = 0; i < subList.size() - 1; i++) {
-            namesOfLength4.append(subList.get(i));
-            namesOfLength4.append(", ");
+            sbNames.append(subList.get(i));
+            sbNames.append(", ");
         }
+        // 去掉最后一个逗号
         if (subList.size() > 1) {
-            namesOfLength4.append(subList.get(subList.size() - 1));
+            sbNames.append(subList.get(subList.size() - 1));
         }
-        System.out.println(namesOfLength4);
+        System.out.println(sbNames);
         System.out.println("----------------");
 
-        // 使用流操作
-        String str = names.stream().filter(num -> num.length() == 4).collect(Collectors.joining(", "));
-        System.out.println(str);
-    }
+        // 使用 Stream 流操作
+        String nameString = names.stream()
+                .filter(num -> num.length() == 4)
+                .collect(Collectors.joining(", "));
+        System.out.println(nameString);
 
-    /**
-     * map，注意，这里的map是进行1:1的转换映射，一般用于从前到后的内容和类型修改
-     */
-    @Test
-    public void mapTest2() {
-        List<String> skills = Arrays.asList("java", "golang", "c++", "c", "python");
-        // 添加中括号后输出
-        skills.stream().map((skill) -> "[" + skill + "]").forEach(System.out::print);
-        System.out.println();
-
-        // 转换成大写后输出
-        String str = skills.stream().map(skill -> skill.toUpperCase()).collect(Collectors.joining(","));
-        System.out.println(str);
-
-        // 转换成大写后输出
-        String str2 = skills.stream().map(String::toUpperCase).collect(Collectors.joining(","));
-        System.out.println(str2);
+        // String string = names.stream().filter(num -> num.length() == 4).map(name -> name.toUpperCase()).collect(Collectors.joining(","));
+         String string = names.stream()
+                 .filter(num -> num.length() == 4)
+                 .map(name -> name.toUpperCase())
+                 .collect(Collectors.joining(","));
     }
 
     /**
@@ -201,16 +226,6 @@ public class Jdk8Stream {
         List<String> skills = Arrays.asList("java", "golang", "c++", "c", "python");
         String s = skills.stream().reduce((all, skill) -> all + skill).get();
         System.out.println(s);
-    }
-
-    /**
-     * filter 过滤例子
-     */
-    @Test
-    public void filterTest2() {
-        List<String> skills = Arrays.asList("java", "golang", "c++", "c", "python");
-        List<String> strings = skills.stream().filter(skill -> skill.length() > 4).collect(Collectors.toList());
-        strings.forEach(skill -> System.out.println(skill));
     }
 
     /**
@@ -233,11 +248,127 @@ public class Jdk8Stream {
     public void mathTest() {
         List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6);
         IntSummaryStatistics stats = list.stream().mapToInt(x -> x).summaryStatistics();
-        System.out.println("最小值" + stats.getMin());
-        System.out.println("最大值" + stats.getMax());
-        System.out.println("个数" + stats.getCount());
-        System.out.println("和" + stats.getSum());
-        System.out.println("平均数" + stats.getAverage());
+        System.out.println("最小值：" + stats.getMin());
+        System.out.println("最大值：" + stats.getMax());
+        System.out.println("个数：" + stats.getCount());
+        System.out.println("和：" + stats.getSum());
+        System.out.println("平均数：" + stats.getAverage());
+    }
+
+    /**
+     * 按年龄分组
+     */
+    @Test
+    public void groupByTest() {
+        List<Integer> ageList = Arrays.asList(11, 22, 13, 14, 25, 26);
+        Map<String, List<Integer>> ageGrouyByMap = ageList.stream()
+                .collect(Collectors.groupingBy(age -> String.valueOf(age / 10)));
+
+        ageGrouyByMap.forEach((k, v) -> {
+            System.out.println("年龄" + k + "0多岁的有：" + v);
+        });
+    }
+
+    /**
+     * 按某个条件分组
+     * 给一组年龄，分出成年人和未成年人
+     */
+    @Test
+    public void partitioningByTest() {
+        List<Integer> ageList = Arrays.asList(11, 22, 13, 14, 25, 26);
+        Map<Boolean, List<Integer>> ageMap = ageList.stream()
+                .collect(Collectors.partitioningBy(age -> age > 18));
+        System.out.println("未成年人：" + ageMap.get(false));
+        System.out.println("成年人：" + ageMap.get(true));
+    }
+
+    /**
+     * 生成自己的 Stream 流
+     */
+    @Test
+    public void generateTest(){
+        // 生成自己的随机数流
+        Random random = new Random();
+        Stream<Integer> generateRandom = Stream.generate(random::nextInt);
+        generateRandom.limit(5).forEach(System.out::println);
+
+        // 生成自己的 UUID 流
+        Stream<UUID> generate = Stream.generate(UUID::randomUUID);
+        generate.limit(5).forEach(System.out::println);
+    }
+
+
+    /**
+     * 获取 / 扔掉前 n 个元素
+     */
+    @Test
+    public void limitOrSkipTest() {
+        // 生成自己的随机数流
+        List<Integer> ageList = Arrays.asList(11, 22, 13, 14, 25, 26);
+        ageList.stream()
+                .limit(3)
+                .forEach(age -> System.out.print(age+","));
+        System.out.println();
+
+        ageList.stream()
+                .skip(3)
+                .forEach(age -> System.out.print(age+","));
+    }
+
+    /**
+     * 找出偶数
+     */
+    @Test
+    public void lazyTest() {
+        // 生成自己的随机数流
+        List<Integer> numberLIst = Arrays.asList(1, 2, 3, 4, 5, 6);
+        // 找出第一个偶数
+        Stream<Integer> integerStream = numberLIst.stream()
+                .filter(number -> {
+                    int temp = number % 2;
+                    if (temp == 0 ){
+                        System.out.println(number);
+                    }
+                    return temp == 0;
+                });
+
+        System.out.println("分割线");
+        List<Integer> collect = integerStream.collect(Collectors.toList());
+    }
+
+
+    /**
+     * 并行计算
+     */
+    @Test
+    public void main() {
+        // 生成自己的随机数流，取一千万个随机数
+        Random random = new Random();
+        Stream<Integer> generateRandom = Stream.generate(random::nextInt);
+        List<Integer> numberList = generateRandom.limit(10000000).collect(Collectors.toList());
+
+        // 串行 - 把一千万个随机数，每个随机数 * 2 ，然后求和
+        long start = System.currentTimeMillis();
+        int sum = numberList.stream().map(number -> number * 2).mapToInt(x -> x).sum();
+        long end = System.currentTimeMillis();
+        System.out.println("串行耗时："+(end - start)+"ms，和是:"+sum);
+
+        // 并行 - 把一千万个随机数，每个随机数 * 2 ，然后求和
+        start = System.currentTimeMillis();
+        sum = numberList.parallelStream().map(number -> number * 2).mapToInt(x -> x).sum();
+        end = System.currentTimeMillis();
+        System.out.println("并行耗时："+(end - start)+"ms，和是:"+sum);
 
     }
+
+    @Test
+    public void simpleTest(){
+        List<Integer> numbers = Arrays.asList(1, 2, 3);
+        int[] factor = new int[] { 2 };
+        Stream<Integer> stream = numbers.stream()
+                .map(e -> e * factor[0]);
+        factor[0] = 0;
+        stream.forEach(System.out::println);
+    }
+
 }

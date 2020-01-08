@@ -41,6 +41,6 @@ class FileRead {
 
     public void close() throws Exception {
         System.out.println("资源关闭");
-        throw new IOException("关闭异常");
+        throw new Exception("关闭异常");
     }
 }

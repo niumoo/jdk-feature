@@ -1,4 +1,5 @@
-# JDK 新特性
+# Java 新特性
+Java 新特性系列，随着新版 Java 的发布不断更新。如果觉得不错，欢迎⭐Star️，欢迎 Fork !
 
 ## Java 8  
 [函数式编程](https://github.com/niumoo/jdk-feature/blob/master/jdk-feature-8/src/main/java/net/codingme/feature/jdk8/Jdk8Function.java)

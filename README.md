@@ -1,16 +1,28 @@
 # JDK 新特性
 
-## JDK8  
-[函数式编程](https://github.com/niumoo/jdk-feature/jdk-feature-8/blob/master/src/main/java/net/codingme/feature/jdk8/Jdk8Function.java)
+## Java 8  
+[函数式编程](https://github.com/niumoo/jdk-feature/blob/master/jdk-feature-8/src/main/java/net/codingme/feature/jdk8/Jdk8Function.java)
 
-[Lambda 表达式](https://github.com/niumoo/jdk-feature/jdk-feature-8/blob/master/src/main/java/net/codingme/feature/jdk8/Jdk8Lambda.java)
+[Lambda 表达式](https://github.com/niumoo/jdk-feature/blob/master/jdk-feature-8/src/main/java/net/codingme/feature/jdk8/Jdk8Lambda.java)
 
-[新的时间函数](https://github.com/niumoo/jdk-feature/jdk-feature-8/blob/master/src/main/java/net/codingme/feature/jdk8/Jdk8LocalDateTime.java)
+[新的时间函数 LodalDateTime](https://github.com/niumoo/jdk-feature/blob/master/jdk-feature-8/src/main/java/net/codingme/feature/jdk8/Jdk8LocalDateTime.java)
 
-[防止空指针的 Optional](https://github.com/niumoo/jdk-feature/jdk-feature-8/blob/master/src/main/java/net/codingme/feature/jdk8/Jdk8Optional.java)
+[防止空指针的 Optional](https://github.com/niumoo/jdk-feature/blob/master/jdk-feature-8/src/main/java/net/codingme/feature/jdk8/Jdk8Optional.java)
 
-[接口默认方法](https://github.com/niumoo/jdk-feature/jdk-feature-8/blob/master/src/main/java/net/codingme/feature/jdk8/Jdk8Interface.java)
+[接口默认方法](https://github.com/niumoo/jdk-feature/blob/master/jdk-feature-8/src/main/java/net/codingme/feature/jdk8/Jdk8Interface.java)
 
+## Java 7 
+[资源自动关闭 Autoclosable](https://github.com/niumoo/jdk-feature/blob/master/jdk-feature-7/src/net/codingme/feature/jdk7/AutoCloseThrow.java)
+
+[变长参数 String... args](https://github.com/niumoo/jdk-feature/blob/master/jdk-feature-7/src/net/codingme/feature/jdk7/AutoParams.java)
+
+[多进制赋值法](https://github.com/niumoo/jdk-feature/blob/master/jdk-feature-7/src/net/codingme/feature/jdk7/Binary.java)
+
+[下划线数字](https://github.com/niumoo/jdk-feature/blob/master/jdk-feature-7/src/net/codingme/feature/jdk7/NumberLine.java)
+
+[switch 和字符串](https://github.com/niumoo/jdk-feature/blob/master/jdk-feature-7/src/net/codingme/feature/jdk7/SwitchWithString.java)
+
+[多异常捕获 ](https://github.com/niumoo/jdk-feature/blob/master/jdk-feature-7/src/net/codingme/feature/jdk7/TryCatchMany.java)
 
 # 交流
 ![](https://user-images.githubusercontent.com/26371673/69558482-46eab080-0fe3-11ea-8fa7-d9d824b7bed4.jpg)  

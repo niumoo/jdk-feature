@@ -3,13 +3,13 @@ Java 新特性系列，随着新版 Java 的发布不断更新。如果觉得不
 
 每个 Java 版本的新特性都有对应的文章详细介绍，想了解的可以访问我的 Java 新特性系列文章。
 
-[Java 新特性系列文章](https://www.codingme.net/categories/Jdk-新特性/)
+[Java 新特性系列文章]([https://www.wdbyte.com/categories/Java-%E6%96%B0%E7%89%B9%E6%80%A7/](https://www.wdbyte.com/categories/Java-新特性/))
 
 ## Java 10 
 
-JEP 322 - 基于时间的版本号
+[JEP 322 - 基于时间的版本号](https://github.com/niumoo/jdk-feature/blob/master/jdk-feature-10/src/net/codingme/feature/jdk10/Java10Version.java)
 
-JEP 286 - 局部类型推断
+[JEP 286 - 局部类型推断](https://github.com/niumoo/jdk-feature/blob/master/jdk-feature-10/src/net/codingme/feature/jdk10/Java10Var.java)
 
 JEP 317 - 基于 Java 的 JIT 编译器（实验性）
 
@@ -17,7 +17,7 @@ JEP 310 - 类数据共享
 
 JEP 307 - G1 并行全GC
 
-JEP 314 - Unicode 语言标签扩展
+[JEP 314 - Unicode 语言标签扩展](https://github.com/niumoo/jdk-feature/blob/master/jdk-feature-10/src/net/codingme/feature/jdk10/Java10Unicode.java)
 
 ## Java 9 
 

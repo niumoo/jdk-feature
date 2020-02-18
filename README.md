@@ -1,6 +1,25 @@
 # Java 新特性
 Java 新特性系列，随着新版 Java 的发布不断更新。如果觉得不错，欢迎⭐Star️，欢迎 Fork !
 
+每个 Java 版本的新特性都有对应的文章详细介绍，想了解的可以访问我的 Java 新特性系列文章。
+
+[Java 新特性系列文章](https://www.codingme.net/categories/Jdk-新特性/)
+
+## Java 9 
+
+[模块化](https://github.com/niumoo/jdk-feature/tree/master/jdk-feature-9/src/main/java/net/codingme/feature/jdk9)
+
+[集合工厂方法](https://github.com/niumoo/jdk-feature/blob/master/jdk-feature-9/src/main/java/net/codingme/feature/jdk9/Jdk9CollectionFactory.java)
+
+[Stream API](https://github.com/niumoo/jdk-feature/blob/master/jdk-feature-9/src/main/java/net/codingme/feature/jdk9/Jdk9Stream.java)
+
+[接口私有方法](https://github.com/niumoo/jdk-feature/blob/master/jdk-feature-9/src/main/java/net/codingme/feature/jdk9/Jdk9Interface.java)
+
+[HTTP/2 Client](https://github.com/niumoo/jdk-feature/blob/master/jdk-feature-9/src/main/java/net/codingme/feature/jdk9/Jdk9Http.java)
+
+[Java REPL - JShell](https://github.com/niumoo/jdk-feature/tree/master/jdk-feature-9/src/main/java/net/codingme/feature/jdk9)
+
+
 ## Java 8  
 [函数式编程](https://github.com/niumoo/jdk-feature/blob/master/jdk-feature-8/src/main/java/net/codingme/feature/jdk8/Jdk8Function.java)
 

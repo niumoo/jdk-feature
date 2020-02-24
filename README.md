@@ -5,6 +5,20 @@ Java 新特性系列，随着新版 Java 的发布不断更新。如果觉得不
 
 [Java 新特性系列文章](https://www.codingme.net/categories/Jdk-新特性/)
 
+## Java 10 
+
+JEP 322 - 基于时间的版本号
+
+JEP 286 - 局部类型推断
+
+JEP 317 - 基于 Java 的 JIT 编译器（实验性）
+
+JEP 310 - 类数据共享
+
+JEP 307 - G1 并行全GC
+
+JEP 314 - Unicode 语言标签扩展
+
 ## Java 9 
 
 [模块化](https://github.com/niumoo/jdk-feature/tree/master/jdk-feature-9/src/main/java/net/codingme/feature/jdk9)

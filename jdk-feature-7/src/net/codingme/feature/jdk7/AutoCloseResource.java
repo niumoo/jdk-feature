@@ -8,7 +8,7 @@ package net.codingme.feature.jdk7;
 public class AutoCloseResource {
     public static void main(String[] args) throws Exception {
         try (Mysql mysql = new Mysql();
-             OracleDatabase oracleDatabase = new OracleDatabase()) {
+            OracleDatabase oracleDatabase = new OracleDatabase()) {
             mysql.conn();
             oracleDatabase.conn();
         }
@@ -16,7 +16,6 @@ public class AutoCloseResource {
 }
 
 class Mysql implements AutoCloseable {
-
     @Override
     public void close() throws Exception {
         System.out.println("mysql 已关闭");

@@ -33,7 +33,7 @@ public class PathDemo {
         System.out.println("第1级目录到第三级目录（包左不包右）：" + subPath.toString());
 
         // resolveSibling 从当前目录父目录开始拼接目录
-        Path pathResolveSibling = path.resolveSibling("PathDem.java");
+        Path pathResolveSibling = path.resolveSibling("PathDemo.java");
         System.out.println("父目录开始拼接参数：" + pathResolveSibling.toString());
 
         // resolve 把当前路径当作父路径，参数作为子目录或者文件

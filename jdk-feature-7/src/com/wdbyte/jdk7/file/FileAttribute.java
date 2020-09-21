@@ -1,5 +1,6 @@
 package com.wdbyte.jdk7.file;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -16,10 +17,10 @@ import java.nio.file.attribute.UserPrincipal;
  * @author darcy
  * @date 2020/09/07
  */
-public class PathAttribute {
+public class FileAttribute {
 
     public static void main(String[] args) throws IOException {
-        Path path = Paths.get("/Users/darcy/git/jdk-feature/jdk-feature-7/src/com/wdbyte/jdk7/PathAttribute.java");
+        Path path = Paths.get("/Users/darcy/git/jdk-feature/README.md");
         BasicFileAttributeView fileAttributeView = Files.getFileAttributeView(path, BasicFileAttributeView.class);
         BasicFileAttributes basicFileAttributes = fileAttributeView.readAttributes();
         FileTime creationTime = basicFileAttributes.creationTime();

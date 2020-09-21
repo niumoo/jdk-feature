@@ -20,7 +20,7 @@ public class PathWatch {
     public static void main(String[] args) throws IOException, InterruptedException {
 
         WatchService watchService = FileSystems.getDefault().newWatchService();
-        Path path = Paths.get("/Users/darcy/git/jdk-feature/jdk-feature-7/src/com/wdbyte/jdk7");
+        Path path = Paths.get("/Users/darcy/test");
         path.register(watchService,
             StandardWatchEventKinds.ENTRY_CREATE,
             StandardWatchEventKinds.ENTRY_DELETE,

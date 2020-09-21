@@ -48,7 +48,7 @@ public class FilesDemo {
         System.out.println("复制文件: " + path + " --> " + pathBackup);
 
         // 读取文件
-        List<String> lines = Files.readAllLines(path);
+        List<String> lines = Files.readAllLines(pathBackup);
         for (String line : lines) {
             System.out.println("文件读取：" + line);
         }

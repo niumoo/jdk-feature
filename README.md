@@ -58,6 +58,9 @@ JEP 307 - G1 并行全GC
 
 [多异常捕获 ](https://github.com/niumoo/jdk-feature/blob/master/jdk-feature-7/src/net/codingme/feature/jdk7/TryCatchMany.java)
 
-# 交流
+## 交流
 ![](https://user-images.githubusercontent.com/26371673/69558482-46eab080-0fe3-11ea-8fa7-d9d824b7bed4.jpg)  
 🐟 欢迎关注公众号：未读代码(weidudaima)，一起成长，欢迎⭐Star️，欢迎 Fork !
+
+## 导入 IDEA
+导入 IDEA 后请在项目结构立为每个模块设置对应的 JDK 版本，不然你可能会遇到超越当前 JDK 版本语法的报错。
